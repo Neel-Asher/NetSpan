@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.vercel.json && vite build",
-    "dev": "vite"
     "lint": "eslint .",
     "preview": "vite preview"
   },
