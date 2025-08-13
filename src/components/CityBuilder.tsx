@@ -40,7 +40,7 @@ export function CityBuilder({
     if (!newCityName.trim()) return;
     
     const name = newCityName.trim();
-    // Generate random position
+
     const x = Math.random() * 400 + 100;
     const y = Math.random() * 300 + 100;
     
@@ -64,7 +64,6 @@ export function CityBuilder({
     const weight = parseInt(edgeWeight.trim());
     if (isNaN(weight) || weight <= 0) return;
 
-    // Check if edge already exists
     const edgeExists = edges.some(edge => 
       (edge.source === selectedNodes[0] && edge.target === selectedNodes[1]) ||
       (edge.source === selectedNodes[1] && edge.target === selectedNodes[0])
