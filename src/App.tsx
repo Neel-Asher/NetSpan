@@ -79,7 +79,6 @@ function generateRandomGraph(numNodes: number = 6): {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
 
-  // Generate nodes
   for (let i = 0; i < numNodes; i++) {
     const cityName = SAMPLE_CITIES[i % SAMPLE_CITIES.length];
     const angle = (i / numNodes) * 2 * Math.PI;
@@ -95,11 +94,9 @@ function generateRandomGraph(numNodes: number = 6): {
     });
   }
 
-  // Generate edges (create a connected graph with some extra edges)
   const edgeSet = new Set<string>();
   let edgeId = 0;
 
-  // Ensure connectivity by creating a spanning tree first
   for (let i = 1; i < numNodes; i++) {
     const source = `node-${Math.floor(Math.random() * i)}`;
     const target = `node-${i}`;
@@ -117,7 +114,6 @@ function generateRandomGraph(numNodes: number = 6): {
     }
   }
 
-  // Add some additional random edges
   const additionalEdges = Math.floor(numNodes * 0.5);
   for (let i = 0; i < additionalEdges; i++) {
     const source = `node-${Math.floor(Math.random() * numNodes)}`;
@@ -166,7 +162,6 @@ export default function App() {
   const [theme, setTheme] = React.useState<"light" | "dark">("light");
   const [layout, setLayout] = React.useState<LayoutType>("manual");
 
-  // Performance tracking
   const [executionHistory, setExecutionHistory] = React.useState<
     Array<{
       algorithm: "kruskal" | "prim";
@@ -177,23 +172,15 @@ export default function App() {
     }>
   >([]);
 
-  // Feature hooks
   const tutorial = useTutorial();
   const quiz = useQuiz();
 
-  // Simplified undo/redo - just for keyboard shortcuts, actual undo/redo is handled by the UndoRedoControls component
-  const dummyUndo = React.useCallback(() => {
-    // This will be handled by the UndoRedoControls component
-  }, []);
+  const dummyUndo = React.useCallback(() => {}, []);
 
-  const dummyRedo = React.useCallback(() => {
-    // This will be handled by the UndoRedoControls component
-  }, []);
+  const dummyRedo = React.useCallback(() => {}, []);
 
-  // Keyboard shortcuts for undo/redo (simplified)
   useUndoRedoKeyboards(dummyUndo, dummyRedo, false, false);
 
-  // Handle undo/redo state restoration
   const handleUndoRedoStateChange = React.useCallback((state: GraphState) => {
     setNodes(state.nodes);
     setEdges(state.edges);
@@ -204,7 +191,6 @@ export default function App() {
     setSelectedNodes([]);
   }, []);
 
-  // Initialize theme from localStorage or system preference
   React.useEffect(() => {
     const savedTheme = localStorage.getItem("netspan-theme") as
       | "light"
@@ -216,7 +202,6 @@ export default function App() {
         document.documentElement.classList.add("dark");
       }
     } else {
-      // Check system preference
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
@@ -228,7 +213,6 @@ export default function App() {
     }
   }, []);
 
-  // Toggle theme
   const toggleTheme = React.useCallback(() => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -242,7 +226,6 @@ export default function App() {
     localStorage.setItem("netspan-theme", newTheme);
   }, [theme]);
 
-  // Initialize with random graph
   React.useEffect(() => {
     const { nodes: randomNodes, edges: randomEdges } = generateRandomGraph();
     setNodes(randomNodes);
@@ -251,7 +234,6 @@ export default function App() {
     setEdgeIdCounter(randomEdges.length);
   }, []);
 
-  // Auto-step when running
   React.useEffect(() => {
     if (!isRunning || !algorithmState || algorithmState.completed) return;
 
@@ -361,15 +343,12 @@ export default function App() {
     if (newState.completed) {
       setIsRunning(false);
 
-      // Add to execution history
       const execution = {
         algorithm: algorithmType,
-        // Access currentStep based on the algorithm type
         steps:
           algorithmType === "kruskal"
             ? (newState as AlgorithmState).currentStep
             : (newState as PrimState).currentStep,
-        // Access startTime based on the algorithm type
         time:
           Date.now() -
           (algorithmType === "kruskal"
@@ -379,7 +358,7 @@ export default function App() {
         edges: edges.length,
       };
 
-      setExecutionHistory((prev) => [...prev.slice(-9), execution]); // Keep last 10 executions
+      setExecutionHistory((prev) => [...prev.slice(-9), execution]); 
     }
   }, [algorithmState, algorithmType, nodes, edges]);
 
@@ -506,7 +485,6 @@ export default function App() {
       setIsRunning(false);
       setSelectedNodes([]);
 
-      // Automatically switch to custom mode to show the imported graph
       setTimeout(() => {
         setMode("custom");
       }, 100);
@@ -529,7 +507,6 @@ export default function App() {
       setIsRunning(false);
       setSelectedNodes([]);
 
-      // Switch to custom mode to show the applied template
       setTimeout(() => {
         setMode("custom");
       }, 100);
@@ -545,7 +522,6 @@ export default function App() {
     setLayout(newLayout);
   }, []);
 
-  // Get current edges for visualization
   const getCurrentEdges = React.useCallback(() => {
     if (!algorithmState) return edges;
 
