@@ -7,7 +7,6 @@
 :root {
   --font-size: 14px;
   
-  /* Light theme colors */
   --background: #ffffff;
   --foreground: #0f172a;
   --card: #ffffff;
@@ -103,9 +102,6 @@
   }
 }
 
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
- */
 @layer base {
   :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
@@ -157,9 +153,6 @@
     }
   }
 }
-
-/* NetSpan brand font styling */
-
 
 .netspan-brand {
   font-family: 'Orbitron', monospace;
