@@ -53,7 +53,9 @@ export function initializePrimsAlgorithm(nodes: Node[], edges: Edge[]): PrimStat
     candidateEdges,
     currentEdge: candidateEdges[0] || null,
     explanation: `Starting Prim's algorithm from node ${nodes[0].name}. We begin by adding this node to our MST and considering all its adjacent edges.`,
-    startNode
+    startNode,
+    currentStep: 0,
+    startTime: Date.now()
   };
 }
 

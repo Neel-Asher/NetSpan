@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { X, ArrowRight, ArrowLeft, Play, MousePointer } from 'lucide-react';
+import { X, ArrowRight, ArrowLeft, MousePointer } from 'lucide-react';
 
 export interface TutorialStep {
   id: string;

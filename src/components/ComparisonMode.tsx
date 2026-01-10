@@ -3,10 +3,9 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Progress } from './ui/progress';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Play, Pause, Square, RotateCcw, GitCompare, Timer, Award } from 'lucide-react';
+import { Play, Pause, RotateCcw, GitCompare, Timer, Award } from 'lucide-react';
 import { EnhancedGraphVisualization } from './EnhancedGraphVisualization';
 import { type Node, type Edge, type AlgorithmState, initializeKruskalAlgorithm, executeKruskalStep } from './KruskalAlgorithm';
 import { type PrimState, initializePrimsAlgorithm, executePrimStep, getPrimEdgesForVisualization } from './PrimsAlgorithm';
@@ -86,7 +85,7 @@ export function ComparisonMode({
       }
     } else {
       // Independent mode - handle each algorithm separately
-      const timers: NodeJS.Timeout[] = [];
+      const timers: ReturnType<typeof setTimeout>[] = [];
       
       if (algorithms.left.isRunning && !algorithms.left.state?.completed) {
         timers.push(setTimeout(() => executeStep('left'), speed));

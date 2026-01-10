@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
@@ -151,7 +150,7 @@ export function GraphStatistics({ nodes, edges, mstEdges = [], mstCost = 0 }: Gr
               <div>
                 <div className="text-sm font-medium mb-2">Most Central Nodes</div>
                 <div className="space-y-1">
-                  {topCentralNodes.map((node, index) => (
+                  {topCentralNodes.map((node) => (
                     <div key={node.id} className="flex items-center justify-between text-xs">
                       <span>{node.name}</span>
                       <div className="flex items-center gap-1">

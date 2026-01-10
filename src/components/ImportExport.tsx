@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 import { Separator } from './ui/separator';
-import { Download, Upload, FileText, Folder, AlertCircle } from 'lucide-react';
+import { Download, Upload, Folder, AlertCircle } from 'lucide-react';
 import type { Node, Edge } from './KruskalAlgorithm';
 import { toast } from 'sonner';
 

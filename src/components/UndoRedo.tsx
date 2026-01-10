@@ -61,7 +61,7 @@ export function useUndoRedo(initialState: GraphState, maxHistorySize: number = 5
 
       // discard "future" and append next
       const trimmed = prevHistory.slice(0, idx + 1);
-      let newHistory = [...trimmed, next];
+      const newHistory = [...trimmed, next];
 
       // cap history
       if (newHistory.length > maxHistorySize) {

@@ -34,7 +34,7 @@ export function GraphVisualization({
     const node = nodes.find(n => n.id === nodeId);
     if (!node) return;
 
-    const rect = (event.currentTarget as SVGElement).getBoundingClientRect();
+    // const rect = (event.currentTarget as SVGElement).getBoundingClientRect();
     const svgRect = (event.currentTarget as SVGElement).closest('svg')?.getBoundingClientRect();
     if (!svgRect) return;
 

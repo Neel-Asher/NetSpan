@@ -82,7 +82,7 @@ export class UnionFind {
   }
 }
 
-export function initializeKruskalAlgorithm(nodes: Node[], edges: Edge[]): AlgorithmState {
+export function initializeKruskalAlgorithm(_nodes: Node[], edges: Edge[]): AlgorithmState {
   const sortedEdges = [...edges].sort((a, b) => a.weight - b.weight);
   
   return {

@@ -18,7 +18,7 @@ export function applyForceDirectedLayout(
   const { width, height, padding = 50 } = options;
   
   // Create a copy of nodes to avoid mutation
-  let layoutNodes = nodes.map(node => ({
+  const layoutNodes = nodes.map(node => ({
     ...node,
     vx: 0,
     vy: 0,

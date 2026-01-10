@@ -6,7 +6,7 @@ import { Switch } from './ui/switch';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Separator } from './ui/separator';
-import { ZoomIn, ZoomOut, RotateCcw, Settings, Eye, EyeOff, Maximize, Layout } from 'lucide-react';
+import { ZoomIn, ZoomOut, RotateCcw, Settings, Eye, EyeOff, Maximize} from 'lucide-react';
 import type { Node, Edge } from './KruskalAlgorithm';
 import { type LayoutType, applyLayout } from './GraphLayouts';
 

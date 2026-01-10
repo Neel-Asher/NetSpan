@@ -4,7 +4,7 @@ import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Area, AreaChart, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
 import { Activity, TrendingUp, Clock, Zap, Target, AlertTriangle } from 'lucide-react';
 import type { Node, Edge } from './KruskalAlgorithm';
 
@@ -134,7 +134,8 @@ export function PerformanceMetrics({ currentNodes, currentEdges, recentExecution
   };
 
   const getRecommendation = () => {
-    const { nodes, edges, density } = currentMetrics;
+    const { nodes: _nodes, edges: _edges, density } = currentMetrics;
+
     
     if (density < 30) {
       return {
