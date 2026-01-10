@@ -3,14 +3,5 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules", "dist", "build"],
-  "compilerOptions": {
-    "composite": true,
-    "declaration": true,
-    "declarationMap": false,
-    "emitDeclarationOnly": false,
-    "skipLibCheck": true
-  }
+  ]
 }
