@@ -119,7 +119,7 @@ It bridges the gap between **theoretical algorithms** and **interactive software
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/netspan-app.git
+git clone https://github.com/Neel-Asher/Netspan.git
 
 # Navigate to project directory
 cd netspan-app
